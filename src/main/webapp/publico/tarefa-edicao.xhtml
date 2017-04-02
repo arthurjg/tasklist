@@ -14,11 +14,18 @@
 	<ui:define name="corpo">	
 		<div ng-controller="TarefasController">
 			<ng-form id="edicao-form">
-            	<input type="text" id="titulo" ng-model="tarefaNova.titulo" size="25" />
-                <input type="text" id="descricao" ng-model="tarefaNova.descricao" size="25" />
-                            
-                <a href="#" id="salvar" class="btn btn-default" ng-click='salvar()'>Salvar</a>
-            </ng-form>
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Titulo</label> 
+				<input type="text" id="titulo-t" ng-model="tarefaNova.titulo" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Descrição</label> 
+				<input type="text" id="descricao" ng-model="tarefaNova.descricao" class="form-control" />
+			</div>
+
+			<a href="#" id="salvar" class="btn btn-default" ng-click='salvar()'>Salvar</a>
+			</ng-form>
 		</div>
 		
 	</ui:define>
