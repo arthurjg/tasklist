@@ -2,21 +2,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition>
-	
-	<h:form id="menu">
-		<table width="100%">
-			<tr>
-				<td>
-					<a href="/restrito/principal">tarefas</a>									
-				</td>
-			</tr>
-		</table>
-	</h:form>
+<ui:composition template="/templates/interna.xhtml">
 
+	<ui:define name="titulo">
+	Tasklist - Edição
+	</ui:define>
+
+	<ui:define name="corpo">	
+		<div ng-controller="TarefasController">
+			<ng-form id="edicao-form">
+            	<input type="text" id="titulo" ng-model="tarefaNova.titulo" size="25" />
+                <input type="text" id="descricao" ng-model="tarefaNova.descricao" size="25" />
+                            
+                <a href="#" id="salvar" class="btn btn-orange" ng-click='salvar()'>Salvar</a>
+            </ng-form>
+		</div>
+		
+	</ui:define>
 </ui:composition>
 </html>
