@@ -1,5 +1,6 @@
 package com.supero.tasklist.ws.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.supero.tasklist.model.Tarefa;
+import com.supero.tasklist.model.TarefaJson;
 import com.supero.tasklist.service.TarefaService;
 
 @Path("/tarefas")
@@ -25,7 +27,10 @@ public class TarefaResource {
 	public Response listar(){
 		
 		try {
-			List<Tarefa> tarefas = tarefaService.listar();
+			List<TarefaJson> tarefas = new ArrayList<TarefaJson>();
+			for(Tarefa tarefa : tarefaService.listar()){
+				tarefas.add(new TarefaJson(tarefa));
+			}
 			return Response.status(200).entity(tarefas).build();
 		} catch(Exception exception){
 			return Response.status(500).entity(exception.getMessage()).build();
@@ -34,12 +39,20 @@ public class TarefaResource {
 	
 	@POST	
     @Consumes(MediaType.APPLICATION_JSON)
-	public Response salvar(Tarefa tarefa){
+	public Response salvar(Tarefa tarefa ){
+		
+		/*@PathParam("titulo") String titulo,
+		@PathParam("descricao") String descricao*/
+		
+		/* = new Tarefa();
+		tarefa.setTitulo(titulo);
+		tarefa.setDescricao(descricao);*/
 		
 		try {
 			tarefaService.salvar(tarefa);
 			return Response.status(201).build();
 		} catch(Exception exception){
+			exception.printStackTrace();
 			return Response.status(500).entity(exception.getMessage()).build();
 		}
 	}

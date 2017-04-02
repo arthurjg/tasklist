@@ -4,8 +4,8 @@
 app.controller('TarefasController', ['$scope', 
       'tarefas-service', function($scope, tarefasService) {
 		
-	tarefasService.list().success(function(data) {
-		    $scope.tarefas = data;
+	tarefasService.list().then(function(response) {		
+		$scope.tarefas = response.data;
 	});
 	
 	$scope.tarefaNova = {
@@ -13,8 +13,7 @@ app.controller('TarefasController', ['$scope',
 	        descricao: ''
 	};
 	
-	$scope.salvar = function(form) { 
-		console.log("salvar...");
+	$scope.salvar = function(form) { 		
 		tarefasService.save($scope.tarefaNova.titulo, $scope.tarefaNova.descricao).success(function() {
 		    
 		});
