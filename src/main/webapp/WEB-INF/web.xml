@@ -19,8 +19,24 @@
 			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
 		</listener-class>
 	</listener>
+	
+	<!-- Welcome File -->
+  
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>    
+  </welcome-file-list>
   
   <!-- Servlet's -->
+  
+  <servlet>
+  	<servlet-name>jsf</servlet-name>
+  	<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+  	<servlet-name>jsf</servlet-name>
+  	<url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
   
   <servlet>
 		<servlet-name>resteasy-servlet</servlet-name>
