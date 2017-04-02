@@ -6,9 +6,9 @@ import com.supero.tasklist.model.Tarefa;
 
 public interface TarefaService {
 	
-	public void salvar(Tarefa clinica);
-	public void atualizar(Tarefa clinica);
-	public void remover(Tarefa clinica);	
+	public void salvar(Tarefa tarefa);
+	public void atualizar(Tarefa tarefa);
+	public void remover(Tarefa tarefa);	
 	public List<Tarefa> listar();	
 
 }

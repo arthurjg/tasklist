@@ -14,7 +14,7 @@ app.controller('TarefasController', ['$scope',
 	};
 	
 	$scope.salvar = function(form) { 
-
+		console.log("salvar...");
 		tarefasService.save($scope.tarefaNova.titulo, $scope.tarefaNova.descricao).success(function() {
 		    
 		});

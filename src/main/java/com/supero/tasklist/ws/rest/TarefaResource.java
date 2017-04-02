@@ -3,7 +3,9 @@ package com.supero.tasklist.ws.rest;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -25,6 +27,18 @@ public class TarefaResource {
 		try {
 			List<Tarefa> tarefas = tarefaService.listar();
 			return Response.status(200).entity(tarefas).build();
+		} catch(Exception exception){
+			return Response.status(500).entity(exception.getMessage()).build();
+		}
+	}
+	
+	@POST	
+    @Consumes(MediaType.APPLICATION_JSON)
+	public Response salvar(Tarefa tarefa){
+		
+		try {
+			tarefaService.salvar(tarefa);
+			return Response.status(201).build();
 		} catch(Exception exception){
 			return Response.status(500).entity(exception.getMessage()).build();
 		}
