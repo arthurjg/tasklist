@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TarefaJson {
 	
+	private Integer id;
 	private String titulo;
 	private String descricao;
 	private String status;
@@ -21,9 +22,10 @@ public class TarefaJson {
 	
 	public TarefaJson(Tarefa tarefa){	
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		this.id = tarefa.getId();
 		this.titulo = tarefa.getTitulo();
 		this.descricao = tarefa.getDescricao();
-		this.status = tarefa.getStatus().equals("A") ? "Aberta" : "Encerrada";
+		this.status = tarefa.getStatus() != null /*.equals("A")*/ ? "Aberta" : "Encerrada";
 		this.dataCriacao = formatter.format(tarefa.getDataCriacao());
 		this.dataEdicao = tarefa.getDataEdicao() != null ? formatter.format(tarefa.getDataEdicao()) : "";
 		this.dataFinalizacao = tarefa.getDataFinalizacao() != null ? formatter.format(tarefa.getDataFinalizacao()) : "";
@@ -75,6 +77,14 @@ public class TarefaJson {
 
 	public void setDataFinalizacao(String dataFinalizacao) {
 		this.dataFinalizacao = dataFinalizacao;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	

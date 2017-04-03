@@ -14,7 +14,7 @@
 	<ui:define name="corpo">	
 		<div ng-controller="TarefasController">
 		
-			<a href="#{request.contextPath}/publico/tarefa-edicao.xhtml">Nova</a>	
+			<a href="#{request.contextPath}/restrito/tarefa-edicao.xhtml" class="btn btn-default">Nova</a>	
 		
 			<table class="table">
 				<thead>
@@ -25,6 +25,7 @@
 						<th>Data da Criação</th>
 						<th>Data da Edição</th>
 						<th>Data da Conclusão</th>
+						<th>Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,7 +35,9 @@
 						<td>{{tarefa.status}}</td>	
 						<td>{{tarefa.dataCriacao}}</td>	
 						<td>{{tarefa.dataEdicao}}</td>
-						<td>{{tarefa.dataFinalizacao}}</td>				
+						<td>{{tarefa.dataFinalizacao}}</td>	
+						<td><a href="#" 
+							id="editar" class="btn btn-default" ng-click='editar(tarefa)'>Editar</a></td>			
 					</tr>
 				</tbody>
 			</table>	

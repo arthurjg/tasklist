@@ -33,20 +33,14 @@ public class TarefaResource {
 			}
 			return Response.status(200).entity(tarefas).build();
 		} catch(Exception exception){
+			exception.printStackTrace();
 			return Response.status(500).entity(exception.getMessage()).build();
 		}
 	}
 	
 	@POST	
     @Consumes(MediaType.APPLICATION_JSON)
-	public Response salvar(Tarefa tarefa ){
-		
-		/*@PathParam("titulo") String titulo,
-		@PathParam("descricao") String descricao*/
-		
-		/* = new Tarefa();
-		tarefa.setTitulo(titulo);
-		tarefa.setDescricao(descricao);*/
+	public Response salvar(Tarefa tarefa){
 		
 		try {
 			tarefaService.salvar(tarefa);

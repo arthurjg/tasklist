@@ -17,11 +17,13 @@
 
 			<div class="form-group">
 				<label for="exampleInputEmail1">Titulo</label> 
-				<input type="text" id="titulo-t" ng-model="tarefaNova.titulo" class="form-control" />
+				<input type="text" id="titulo-t" ng-model="tarefaEdicao.titulo" class="form-control" 
+					value="{{tarefaEdicao.titulo}}"/>
 			</div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Descrição</label> 
-				<input type="text" id="descricao" ng-model="tarefaNova.descricao" class="form-control" />
+				<input type="text" id="descricao" ng-model="tarefaEdicao.descricao" class="form-control" 
+				value="{{tarefaEdicao.descricao}}"/>
 			</div>
 
 			<a href="#" id="salvar" class="btn btn-default" ng-click='salvar()'>Salvar</a>
