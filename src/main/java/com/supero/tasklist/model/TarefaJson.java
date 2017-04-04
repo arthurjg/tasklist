@@ -26,7 +26,7 @@ public class TarefaJson {
 		this.titulo = tarefa.getTitulo();
 		this.descricao = tarefa.getDescricao();
 		this.status = tarefa.getStatus() != null /*.equals("A")*/ ? "Aberta" : "Encerrada";
-		this.dataCriacao = formatter.format(tarefa.getDataCriacao());
+		this.dataCriacao = tarefa.getDataCriacao() != null ? formatter.format(tarefa.getDataCriacao()) : "";
 		this.dataEdicao = tarefa.getDataEdicao() != null ? formatter.format(tarefa.getDataEdicao()) : "";
 		this.dataFinalizacao = tarefa.getDataFinalizacao() != null ? formatter.format(tarefa.getDataFinalizacao()) : "";
 	}

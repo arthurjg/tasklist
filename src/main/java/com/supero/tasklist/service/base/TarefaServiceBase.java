@@ -25,6 +25,7 @@ public class TarefaServiceBase implements TarefaService {
 	@Override
 	@Transactional
 	public void atualizar(Tarefa tarefa) {
+		tarefa.setDataEdicao(new Date());
 		tarefaRepository.atualizar(tarefa);
 	}
 

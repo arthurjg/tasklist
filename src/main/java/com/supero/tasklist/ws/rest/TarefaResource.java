@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -32,7 +33,7 @@ public class TarefaResource {
 				tarefas.add(new TarefaJson(tarefa));
 			}
 			return Response.status(200).entity(tarefas).build();
-		} catch(Exception exception){
+		} catch(Exception exception){	
 			exception.printStackTrace();
 			return Response.status(500).entity(exception.getMessage()).build();
 		}
@@ -45,6 +46,19 @@ public class TarefaResource {
 		try {
 			tarefaService.salvar(tarefa);
 			return Response.status(201).build();
+		} catch(Exception exception){
+			exception.printStackTrace();
+			return Response.status(500).entity(exception.getMessage()).build();
+		}
+	}
+	
+	@PUT	
+    @Consumes(MediaType.APPLICATION_JSON)
+	public Response atualizar(Tarefa tarefa){
+		
+		try {
+			tarefaService.atualizar(tarefa);
+			return Response.status(200).build();
 		} catch(Exception exception){
 			exception.printStackTrace();
 			return Response.status(500).entity(exception.getMessage()).build();
