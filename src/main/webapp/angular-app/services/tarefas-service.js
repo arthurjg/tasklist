@@ -7,12 +7,6 @@ app.factory('tarefas-service', ['$http', function($http) {
 			list: function(){				
 				return $http.get('http://localhost:8080/tasklist/rest/tarefas').then();				
 			},
-			setTarefa: function(tarefa){
-				localStorage.setItem("tarefa", tarefa);
-			}, 
-			getTarefa: function(){
-				return localStorage.getItem("tarefa");
-			}, 
             save: function(id, titulo, descricao){
             	
             	var data = {
@@ -20,7 +14,7 @@ app.factory('tarefas-service', ['$http', function($http) {
                         "titulo": titulo,
                         "descricao": descricao
                 			};
-            	$http.post( 'http://localhost:8080/tasklist/rest/tarefas', 
+            	return $http.post( 'http://localhost:8080/tasklist/rest/tarefas', 
             			data, 
                         {"content-type":'application/json'})
                           .success(function() { 
