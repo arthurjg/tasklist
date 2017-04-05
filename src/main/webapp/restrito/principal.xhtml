@@ -18,16 +18,21 @@
 
 			<ng-form id="edicao-form" ng-if="editing">
 
-			<div class="form-group">
-				<label for="exampleInputEmail1">Titulo</label> <input type="text"
-					id="titulo-t" ng-model="tarefaEdicao.titulo" class="form-control"
-					value="{{tarefaEdicao.titulo}}" />
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Descrição</label> <input
-					type="text" id="descricao" ng-model="tarefaEdicao.descricao"
-					class="form-control" value="{{tarefaEdicao.descricao}}" />
-			</div>
+				<div class="form-group">
+					<label for="titulo-text">Titulo</label> 
+					<input type="text" id="titulo-text" ng-model="tarefaEdicao.titulo" class="form-control"
+						value="{{tarefaEdicao.titulo}}" />
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label> 
+						<input
+						type="text" id="descricao" ng-model="tarefaEdicao.descricao"
+						class="form-control" value="{{tarefaEdicao.descricao}}" />
+				</div>
+				<div class="btn-group" role="group" aria-label="...tttt">
+  					<button type="button" class="btn btn-default active">Aberta</button>
+  					<button type="button" class="btn btn-default disabled" >Concluida</button>  					
+				</div>
 
 				<a href="#" id="salvar" class="btn btn-default" ng-click='salvar()'>Salvar</a>
 			</ng-form>

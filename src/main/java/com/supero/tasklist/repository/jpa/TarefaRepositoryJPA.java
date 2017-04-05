@@ -36,7 +36,11 @@ public class TarefaRepositoryJPA implements TarefaRepository {
 
 	@Override
 	public void atualizar(Tarefa entidade) {
-		manager.merge(entidade);		
+		Tarefa entidadePersistida = manager.find(Tarefa.class, entidade.getId());
+		entidadePersistida.setDescricao(entidade.getDescricao());
+		entidadePersistida.setTitulo(entidade.getTitulo());
+		entidadePersistida.setDataEdicao(entidade.getDataEdicao());
+		manager.merge(entidadePersistida);		
 	}
 
 	@Override
