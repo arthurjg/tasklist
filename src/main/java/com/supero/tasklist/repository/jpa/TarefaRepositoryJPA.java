@@ -40,6 +40,7 @@ public class TarefaRepositoryJPA implements TarefaRepository {
 		entidadePersistida.setDescricao(entidade.getDescricao());
 		entidadePersistida.setTitulo(entidade.getTitulo());
 		entidadePersistida.setDataEdicao(entidade.getDataEdicao());
+		entidadePersistida.setStatus(entidade.getStatus());
 		manager.merge(entidadePersistida);		
 	}
 

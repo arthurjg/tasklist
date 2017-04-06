@@ -7,12 +7,12 @@ app.factory('tarefas-service', ['$http', function($http) {
 			list: function(){				
 				return $http.get('http://localhost:8080/tasklist/rest/tarefas').then();				
 			},
-            save: function(id, titulo, descricao){
+            save: function(tarefaEdicao){
             	
             	var data = {
-            			"id": id,
-                        "titulo": titulo,
-                        "descricao": descricao
+            			"status": tarefaEdicao.status,
+                        "titulo": tarefaEdicao.titulo,
+                        "descricao": tarefaEdicao.descricao
                 			};
             	return $http.post( 'http://localhost:8080/tasklist/rest/tarefas', 
             			data, 
@@ -24,12 +24,13 @@ app.factory('tarefas-service', ['$http', function($http) {
                   			console.log("erro");
                   		});
             },
-            update: function(id, titulo, descricao){
+            update: function(tarefa){
             	
             	var data = {
-            			"id": id,
-                        "titulo": titulo,
-                        "descricao": descricao
+            			"id": tarefa.id,
+                        "titulo": tarefa.titulo,
+                        "status": tarefa.status,
+                        "descricao": tarefa.descricao
                 			};
             	return $http.put( 'http://localhost:8080/tasklist/rest/tarefas', 
             			data, 
